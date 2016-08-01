@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#EEEEEE"
+    android:columnCount="3"
+
+
+    android:rowCount="3">
+
+    <RelativeLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_row="0"
+        android:layout_column="0">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/drinks"
+
+            android:src="@drawable/soda"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/drinks"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/drinks"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/drinksText"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_row="0"
+        android:layout_column="1">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/pizza"
+            android:src="@drawable/pizza"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pizza"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/pizza"
+            android:id="@+id/pizzaText"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout   android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_row="0"
+        android:layout_column="2">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/sushi"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/sushi"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sushi"
+            android:textSize="16sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/sushi"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/sushiText"
+            />
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_row="1"
+        android:layout_column="0"
+        >
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/hamburguer"
+            android:src="@drawable/hamburguer"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:layout_below="@+id/hamburguer"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/hamburguer"
+            android:id="@+id/hamburguerText"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_gravity="center"
+        android:layout_column="1">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/steak"
+            android:src="@drawable/steak"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_below="@+id/steak"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/steak"
+            android:id="@+id/steakText"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+
+
+        android:layout_column="2">
+
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:id="@+id/spaguetti"
+            android:src="@drawable/spaguetti"
+            />
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spaguetti"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/spaguetti"
+            android:id="@+id/spaguettiText"
+            />
+
+    </RelativeLayout>
+
+
+
+</GridLayout>

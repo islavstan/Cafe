@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="домой" />
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/share"
+        android:title="акции" />
+    <item
+        android:id="@+id/bucket"
+        android:icon="@drawable/bucket"
+        android:title="корзина" />
+</menu>
