@@ -1,4 +1,4 @@
-package ua.dashan.cafe;
+package ua.dashan.cafe.database;
 
 
 public class DatabaseModel {
@@ -9,6 +9,13 @@ public class DatabaseModel {
     private int price;
     private int weight;
     private String category;
+    public DatabaseModel(int id,String name,int price,int photo,String category){
+        this.id=id;
+        this.name=name;
+        this.price=price;
+        this.photo=photo;
+        this.category=category;
+    }
 
     public int getId() {
         return id;

@@ -2,6 +2,7 @@ package ua.dashan.cafe;
 
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -11,9 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-/**
- * Created by Дашан on 01.08.2016.
- */
+
 public class CategoriesFragment extends Fragment {
 private ImageView drinks;
 private ImageView pizza;
@@ -36,9 +35,15 @@ private ImageView spaguetti;
         drinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getActivity(),
+                /*Toast toast = Toast.makeText(getActivity(),
                         "drinks", Toast.LENGTH_SHORT);
-                toast.show();
+                toast.show();*/
+
+                Fragment fragment = new DetailCategoriesFragment();
+                FragmentTransaction ft =getFragmentManager().beginTransaction();
+                ft.replace(R.id.categories_container,fragment);
+                ft.addToBackStack(null);
+                ft.commit();
             }
         });
 
