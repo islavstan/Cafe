@@ -9,14 +9,17 @@ public class DatabaseModel {
     private int price;
     private int weight;
     private String category;
-    public DatabaseModel(int id,String name,int price,int photo,String category){
-        this.id=id;
+
+    public DatabaseModel(String name,String consist,int price,int photo,String category,int weight){
+       this.weight=weight;
         this.name=name;
         this.price=price;
         this.photo=photo;
         this.category=category;
-    }
+        this.consist=consist;
 
+    }
+    public DatabaseModel(){};
     public int getId() {
         return id;
     }

@@ -1,16 +1,18 @@
 package ua.dashan.cafe;
 
 
-import android.app.FragmentManager;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
+import android.app.FragmentManager;
+
+
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.BottomBarBadge;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 public class MainActivity extends FragmentActivity {
@@ -25,25 +27,21 @@ public class MainActivity extends FragmentActivity {
             }
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            CategoriesFragment categoriesFragment =new CategoriesFragment();
+            CategoriesFragment categoriesFragment = new CategoriesFragment();
             fragmentTransaction.add(R.id.categories_container, categoriesFragment, null);
             fragmentTransaction.commit();
         }
 
 
-
-
-
         BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
 
-       // bottomBar.useDarkTheme(true);
         bottomBar.setItemsFromMenu(R.menu.buttons_menu, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
                 switch (itemId) {
                     case R.id.home:
                         Toast toast = Toast.makeText(getApplicationContext(),
-                            "домой", Toast.LENGTH_SHORT);
+                                "домой", Toast.LENGTH_SHORT);
                         toast.show();
                         break;
                     case R.id.share:
@@ -52,9 +50,21 @@ public class MainActivity extends FragmentActivity {
                         toast1.show();
                         break;
                     case R.id.bucket:
-                        Toast toast2 = Toast.makeText(getApplicationContext(),
+                        /*Toast toast2 = Toast.makeText(getApplicationContext(),
                                 "корзина", Toast.LENGTH_SHORT);
-                        toast2.show();
+                        toast2.show();*/
+                        Fragment fragment = new BuyFoodFragment();
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.categories_container, fragment);
+                        ft.addToBackStack(null);
+                        ft.commit();
+
+
+
+
+
+
+
                         break;
                 }
             }

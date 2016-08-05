@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:id="@+id/detimage"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/detname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="30sp"
+        android:text="name"/>
+
+    <TextView
+        android:id="@+id/detconsist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="consist"/>
+
+    <TextView
+        android:id="@+id/detweight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="weight"/>
+    <TextView
+        android:id="@+id/detprice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="price"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Купить"
+        android:id="@+id/buyButton" />
+
+</LinearLayout>

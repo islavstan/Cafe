@@ -3,7 +3,7 @@
     <string name="drinks">Напитки</string>
     <string name="pizza">Пицца</string>
     <string name="sushi">Суши</string>
-    <string name="hamburguer">Гамбургеры</string>
+    <string name="hamburguer">Бургеры</string>
     <string name="steak">Стейки</string>
-    <string name="spaguetti">Спагетти</string>
+    <string name="spaguetti">Паста</string>
 </resources>
