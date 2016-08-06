@@ -1,0 +1,6 @@
+<com.jude.rollviewpager.RollPagerView android:layout_width="match_parent"
+    android:id="@+id/roll"
+    android:layout_height="180dp"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

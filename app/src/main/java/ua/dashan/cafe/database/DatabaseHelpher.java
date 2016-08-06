@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import ua.dashan.cafe.R;
 
 
 public class DatabaseHelpher extends SQLiteOpenHelper {
+    private SQLiteDatabase mDatabase;
     // Database Version
     private static final int DATABASE_VERSION = 11;
     private static final String DATABASE_NAME = "cafe";
@@ -231,7 +233,7 @@ public class DatabaseHelpher extends SQLiteOpenHelper {
             }while (cursor.moveToNext());}
         return modelList;
     }
-
+//купить еду
     public int buyFood(DatabaseModel model) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -242,7 +244,30 @@ public class DatabaseHelpher extends SQLiteOpenHelper {
     }
 
 
-
-
-
+    // получить кол-во купленных блюд
+    public int getBuyFoodCount() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_FOOD, new String[] { KEY_ID, KEY_NAME,KEY_CONSIST, KEY_PHOTO, KEY_PRICE,KEY_WEIGHT, KEY_CATEGORY }, KEY_BOUGHT_FOOD + "=?",
+                new String[] { String.valueOf(1) }, null, null, null, null);
+        int count =cursor.getCount();
+        cursor.close();
+        return count;
+    }
+//отменить покупку
+    public int cancelBuyFood() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_BOUGHT_FOOD, 0);
+        return db.update(TABLE_FOOD, values, KEY_BOUGHT_FOOD + " = ?",
+                new String[] { String.valueOf(1) });
+    }
+    //отменить покупку 1 товара
+    public int cancelBuyOneFood(String name) {
+    SQLiteDatabase db = this.getWritableDatabase();
+    ContentValues values = new ContentValues();
+    values.put(KEY_BOUGHT_FOOD, 0);
+    // updating row
+    return db.update(TABLE_FOOD, values, KEY_NAME + " = ?",
+            new String[] { name });
+}
 }

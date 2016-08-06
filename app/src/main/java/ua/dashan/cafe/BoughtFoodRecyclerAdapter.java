@@ -1,17 +1,9 @@
 package ua.dashan.cafe;
 
 
-
-import android.support.v4.app.Fragment;
-import android.app.FragmentTransaction;
-
-
 import android.content.Context;
-
 import android.os.Bundle;
-
-
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,26 +14,28 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ua.dashan.cafe.database.DatabaseHelpher;
 import ua.dashan.cafe.database.DatabaseModel;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-
+public class BoughtFoodRecyclerAdapter extends RecyclerView.Adapter<BoughtFoodRecyclerAdapter.ViewHolder> {
+    static DatabaseHelpher helpher;
     static   List<DatabaseModel> dbList;
     static  Context context;
-    RecyclerAdapter(Context context, List<DatabaseModel> dbList ){
+    BoughtFoodRecyclerAdapter(Context context, List<DatabaseModel> dbList ){
         this.dbList = new ArrayList<DatabaseModel>();
         this.context = context;
         this.dbList = dbList;
+        helpher=new DatabaseHelpher(context);
 
     }
 
 
 
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BoughtFoodRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.card_item, null);
+                R.layout.buy_card_item, null);
 
         // create ViewHolder
 
@@ -50,13 +44,34 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final BoughtFoodRecyclerAdapter.ViewHolder holder, final int position) {
 
         holder.name.setText(dbList.get(position).getName());
         holder.weight.setText(Integer.toString(dbList.get(position).getWeight()));
         holder.image.setImageResource(dbList.get(position).getPhoto());
         holder.price.setText(Integer.toString(dbList.get(position).getPrice())+"грн.");
+        holder.garbagebucket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(dbList.size()>0) {
+                   // String itemLabel = dbList.get(position).getName();
+                    helpher.cancelBuyOneFood(dbList.get(position).getName());
+                    dbList.remove(position);
+                    notifyDataSetChanged();
+
+                }
+
+            }
+        });
+
     }
+
+
+
+    public void removeAllBuyFood(){
+            dbList.removeAll(dbList);
+            notifyDataSetChanged();
+        }
 
     @Override
     public int getItemCount() {
@@ -67,7 +82,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public ImageView image;
+        public ImageView image,garbagebucket;
         public TextView name;
         public TextView weight;
         public TextView price;
@@ -75,27 +90,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
             image=(ImageView)itemView.findViewById(R.id.image);
+            garbagebucket=(ImageView)itemView.findViewById(R.id.garbagebucket);
             name=(TextView)itemView.findViewById(R.id.name);
             weight=(TextView)itemView.findViewById(R.id.weight);
             price=(TextView)itemView.findViewById(R.id.price);
             itemView.setOnClickListener(this);
 
-
         }
 
         @Override
         public void onClick(View v) {
-            MainActivity activity = (MainActivity) v.getContext();
-            Fragment fragment = new FullInfoFragment();
-            Bundle bundle = new Bundle();
-            String name =dbList.get(getAdapterPosition()).getName();
-            bundle.putString("name",name);
-            fragment.setArguments(bundle);
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.categories_container, fragment).addToBackStack(null).commit();
-
-
 
         }
+
+
+
     }
 
         }
